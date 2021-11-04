@@ -16,7 +16,10 @@ public class Calculator extends JFrame {
     private JRadioButton func1 = new JRadioButton("Функция 1");
     private JRadioButton func2 = new JRadioButton("Функция 2");
     private JLabel result = new JLabel("Результат: ");
-    private JTextField input = new JTextField("", 10);
+    private JLabel input = new JLabel(" 4", 10);
+    private JTextField mem1_1 = new JTextField("", 10);
+    private JTextField mem2_2 = new JTextField("", 10);
+    private JTextField mem3_3 = new JTextField("", 10);
 
 
 
@@ -25,23 +28,45 @@ public class Calculator extends JFrame {
         super("Calculator");
         this.setBounds(100, 100, 100,100);
         Container cont = this.getContentPane();
-        cont.setLayout( new GridLayout(2, 1, 2,2));
+        cont.setLayout( new GridLayout(5, 1, 2,2));
       //  BorderLayout myLayout = new BorderLayout(5, 5);
         JPanel panel1 = new JPanel();
         panel1.setLayout(new FlowLayout( FlowLayout.CENTER ));
         JPanel panel2 = new JPanel();
         panel2.setLayout(new FlowLayout( FlowLayout.CENTER ));
+
         ButtonGroup func = new ButtonGroup();
         func.add(func1);
         func.add(func2);
+
         panel1.add(func1);
         func1.setSelected(true);
         panel1.add (func2);
+        panel2.add (result);
         panel2.add (input);
 
 
-        panel2.add (result);
+        ButtonGroup mem = new ButtonGroup();
+        mem.add(mem_1);
+        mem.add(mem_2);
+        mem.add(mem_3);
+        mem_1.setSelected(true);
+
+        JPanel mems = new JPanel();
+        mems.setLayout(new FlowLayout( FlowLayout.CENTER ));
+        mems.add(mem_1);
+        mems.add(mem_2);
+        mems.add(mem_3);
+
+        JPanel mems_text = new JPanel();
+        mems_text.add(mem1_1);
+        mems_text.add(mem2_2);
+        mems_text.add(mem3_3);
+        mems_text.setLayout(new FlowLayout( FlowLayout.CENTER ));
+
         cont.add (panel1, BorderLayout.CENTER);
+        cont.add (mems, BorderLayout.CENTER);
+        cont.add (mems_text, BorderLayout.CENTER);
         cont.add (panel2, BorderLayout.CENTER);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
