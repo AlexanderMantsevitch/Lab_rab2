@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         Calculator add = new Calculator();
+
         add.setVisible(true);
         add.pack();
         System.out.println( add.getSize());
