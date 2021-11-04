@@ -47,6 +47,19 @@ public class Calculator extends JFrame {
 
     }
 
-
-
+    double getMem1 ()
+    {
+        return mem1;
+    }
+    double getMem2 ()
+    {
+        return mem2;
+    }
+    double getMem3 ()
+    {
+        return mem3;
+    }
+    void setMem1 (double mem) { mem1 = mem; }
+    void setMem2 (double mem) { mem2 = mem; }
+    void setMem3 (double mem) { mem3 = mem; }
 }
