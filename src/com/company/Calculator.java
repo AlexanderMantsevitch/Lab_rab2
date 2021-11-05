@@ -88,10 +88,6 @@ public class Calculator extends JFrame {
         Butt.add (MC);
         Butt.setLayout(new FlowLayout( FlowLayout.CENTER ));
 
-       // JPanel result_1 = new JPanel();
-       // result_1.add (result);
-       // result_1.add (result_panel);
-       // result_1.setLayout(new FlowLayout( FlowLayout.CENTER ));
 
         cont.add (panel1, BorderLayout.CENTER);
         cont.add (mems, BorderLayout.CENTER);
@@ -135,7 +131,7 @@ public class Calculator extends JFrame {
                     double resultat = Double.parseDouble( input.getText());
                     double x = Double.parseDouble( mem1_1.getText());
                     x += resultat;
-                    mem1_1.setText(String.valueOf(x));
+                    input.setText(String.valueOf(x));
 
 
                 }
@@ -143,14 +139,14 @@ public class Calculator extends JFrame {
                         double resultat = Double.parseDouble( input.getText());
                         double y = Double.parseDouble( mem2_2.getText());
                         y += resultat;
-                        mem2_2.setText(String.valueOf(y));
+                        input.setText(String.valueOf(y));
 
                     }
                     if (mem_3.isSelected()) {
                         double resultat = Double.parseDouble( input.getText());
                         double z = Double.parseDouble( mem3_3.getText());
                         z += resultat;
-                        mem3_3.setText(String.valueOf(z));
+                        input.setText(String.valueOf(z));
 
                     }
                 }
@@ -161,6 +157,27 @@ public class Calculator extends JFrame {
 
                 }
 
+            }
+        });
+        MC.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (mem_1.isSelected()) {
+
+                    mem1_1.setText("");
+
+
+                }
+                if (mem_2.isSelected()) {
+
+                    mem2_2.setText("");
+
+                }
+                if (mem_3.isSelected()) {
+
+                    mem3_3.setText("");
+
+                }
             }
         });
 
