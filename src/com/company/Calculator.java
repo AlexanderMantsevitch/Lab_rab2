@@ -24,9 +24,9 @@ public class Calculator extends JFrame {
     private JRadioButton func2 = new JRadioButton("Функция 2");
     private JLabel result = new JLabel("Результат: ");
     private JLabel input = new JLabel(" ", 10);
-    private JTextField mem1_1 = new JTextField("", 10);
-    private JTextField mem2_2 = new JTextField("", 10);
-    private JTextField mem3_3 = new JTextField("", 10);
+    private JTextField mem1_1 = new JTextField("", 12);
+    private JTextField mem2_2 = new JTextField("", 12);
+    private JTextField mem3_3 = new JTextField("", 12);
     private  JButton M = new JButton("M+");
     private  JButton MC = new JButton("MC");
     private  JButton res = new JButton("Вычислить");
@@ -130,6 +130,36 @@ public class Calculator extends JFrame {
         M.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                if (mem_1.isSelected()) {
+                    double resultat = Double.parseDouble( input.getText());
+                    double x = Double.parseDouble( mem1_1.getText());
+                    x += resultat;
+                    mem1_1.setText(String.valueOf(x));
+
+
+                }
+                    if (mem_2.isSelected()) {
+                        double resultat = Double.parseDouble( input.getText());
+                        double y = Double.parseDouble( mem2_2.getText());
+                        y += resultat;
+                        mem2_2.setText(String.valueOf(y));
+
+                    }
+                    if (mem_3.isSelected()) {
+                        double resultat = Double.parseDouble( input.getText());
+                        double z = Double.parseDouble( mem3_3.getText());
+                        z += resultat;
+                        mem3_3.setText(String.valueOf(z));
+
+                    }
+                }
+                catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(Calculator.this,
+                            "Ошибка в формате записи числа с плавающей точкой", "Ошибочный формат числа",
+                            JOptionPane.WARNING_MESSAGE);
+
+                }
 
             }
         });
