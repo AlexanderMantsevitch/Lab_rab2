@@ -60,7 +60,7 @@ public class Calculator extends JFrame {
         panel1.add(func1);
         func1.setSelected(true);
         panel1.add (func2);
-        JPanel ic_2 = new JPanel();
+
        // func1.createToolTip();
 
 
@@ -92,6 +92,10 @@ public class Calculator extends JFrame {
         Butt.add (M);
         Butt.add (MC);
         Butt.setLayout(new FlowLayout( FlowLayout.CENTER ));
+        JPanel ic_2 = new JPanel();
+        ic = (new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func1.BMP"));
+        JLabel q = new JLabel(ic);
+        ic_2.add(q);
 
 
         cont.add (panel1, BorderLayout.CENTER);
@@ -113,22 +117,16 @@ public class Calculator extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
-                //ImageIcon icon1 =new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func1.BMP");;
-
                 ic = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func1.BMP");
                 JLabel ic_3 = new JLabel(ic);
+                ic_3.setLayout(new FlowLayout( FlowLayout.CENTER ));
                 ic_2.removeAll();
                 ic_2.add(ic_3);
                 ic_2.setLayout(new FlowLayout( FlowLayout.CENTER ));
-                processWindowEvent(update(this));
+               ic_2.updateUI();
                 cont.removeAll();
                 cont.add (panel1, BorderLayout.CENTER);
                 cont.add (ic_2);
-                //a1.add (func1);
-                //a1.add (func2);
-
-                // cont.add (a1);
 
                 cont.add (mems, BorderLayout.CENTER);
                 cont.add (mems_text, BorderLayout.CENTER);
@@ -147,15 +145,22 @@ public class Calculator extends JFrame {
 
 
                 ImageIcon icon2 = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func2.BMP");
-                ;
 
-                JLabel ic2 = new JLabel(icon2);
+                JLabel ic_3 = new JLabel(icon2);
+                ic_3.setLayout(new FlowLayout( FlowLayout.CENTER ));
                 ic_2.removeAll();
+                ic_2.add(ic_3);
+                ic_2.setLayout(new FlowLayout( FlowLayout.CENTER ));
+                ic_2.updateUI();
+                cont.removeAll();
+                cont.add (panel1, BorderLayout.CENTER);
+                cont.add (ic_2);
 
-                ic_2.add(ic2);
 
-                ic_2.setLayout(new FlowLayout(FlowLayout.CENTER));
-
+                cont.add (mems, BorderLayout.CENTER);
+                cont.add (mems_text, BorderLayout.CENTER);
+                cont.add (panel2, BorderLayout.CENTER);
+                cont.add (Butt,BorderLayout.CENTER);
 
 
             }
