@@ -14,23 +14,21 @@ public class Calculator extends JFrame {
     private static final int HEIGHT = 320;
 
 
-    private double mem1= 0;
-    private double mem2= 0;
-    private double mem3= 0;
+
     private JRadioButton mem_1 = new JRadioButton("Переменная 1");
     private JRadioButton mem_2 = new JRadioButton("Переменная 2");
     private JRadioButton mem_3 = new JRadioButton("Переменная 3");
-    private JRadioButton func1 = new JRadioButton("Функция 1");
-    private JRadioButton func2 = new JRadioButton("Функция 2");
+    private JRadioButtonMenuItem func1 = new JRadioButtonMenuItem("Функция 1");
+    private JRadioButtonMenuItem func2 = new JRadioButtonMenuItem("Функция 2");
     private JLabel result = new JLabel("Результат: ");
-    private JLabel input = new JLabel(" ", 10);
-    private JTextField mem1_1 = new JTextField("", 12);
-    private JTextField mem2_2 = new JTextField("", 12);
-    private JTextField mem3_3 = new JTextField("", 12);
+    private JLabel input = new JLabel("0", 10);
+    private JTextField mem1_1 = new JTextField("0", 12);
+    private JTextField mem2_2 = new JTextField("0", 12);
+    private JTextField mem3_3 = new JTextField("0", 12);
     private  JButton M = new JButton("M+");
     private  JButton MC = new JButton("MC");
     private  JButton res = new JButton("Вычислить");
-
+    private ImageIcon ic;
 
 
 
@@ -39,16 +37,16 @@ public class Calculator extends JFrame {
     public Calculator() {
 
         super("Calculator");
-       // this.setBounds(100, 100, 100,100);
+
         setSize(WIDTH, HEIGHT);
         Toolkit kit = Toolkit.getDefaultToolkit();
-// Центрировать окно приложения на экране
+
         setLocation((kit.getScreenSize().width - WIDTH)/2,
                 (kit.getScreenSize().height - HEIGHT)/2);
 
         Container cont = this.getContentPane();
-        cont.setLayout( new GridLayout(6, 1, 2,2));
-      //  BorderLayout myLayout = new BorderLayout(5, 5);
+        cont.setLayout( new GridLayout(7, 1, 2,2));
+
         JPanel panel1 = new JPanel();
         panel1.setLayout(new FlowLayout( FlowLayout.CENTER ));
         JPanel panel2 = new JPanel();
@@ -58,9 +56,16 @@ public class Calculator extends JFrame {
         func.add(func1);
         func.add(func2);
 
+
         panel1.add(func1);
         func1.setSelected(true);
         panel1.add (func2);
+        JPanel ic_2 = new JPanel();
+       // func1.createToolTip();
+
+
+
+
         panel2.add (result);
         panel2.add (input);
 
@@ -90,12 +95,71 @@ public class Calculator extends JFrame {
 
 
         cont.add (panel1, BorderLayout.CENTER);
+        cont.add (ic_2);
+       //a1.add (func1);
+       //a1.add (func2);
+
+      // cont.add (a1);
+
         cont.add (mems, BorderLayout.CENTER);
         cont.add (mems_text, BorderLayout.CENTER);
         cont.add (panel2, BorderLayout.CENTER);
         cont.add (Butt,BorderLayout.CENTER);
+
+
         cont.add (res,BorderLayout.CENTER );
 
+        func1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                //ImageIcon icon1 =new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func1.BMP");;
+
+                ic = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func1.BMP");
+                JLabel ic_3 = new JLabel(ic);
+                ic_2.removeAll();
+                ic_2.add(ic_3);
+                ic_2.setLayout(new FlowLayout( FlowLayout.CENTER ));
+                processWindowEvent(update(this));
+                cont.removeAll();
+                cont.add (panel1, BorderLayout.CENTER);
+                cont.add (ic_2);
+                //a1.add (func1);
+                //a1.add (func2);
+
+                // cont.add (a1);
+
+                cont.add (mems, BorderLayout.CENTER);
+                cont.add (mems_text, BorderLayout.CENTER);
+                cont.add (panel2, BorderLayout.CENTER);
+                cont.add (Butt,BorderLayout.CENTER);
+
+
+                cont.add (res,BorderLayout.CENTER );
+
+
+            }
+        });
+        func2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                ImageIcon icon2 = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func2.BMP");
+                ;
+
+                JLabel ic2 = new JLabel(icon2);
+                ic_2.removeAll();
+
+                ic_2.add(ic2);
+
+                ic_2.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+
+
+            }
+        });
         res.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -164,18 +228,18 @@ public class Calculator extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (mem_1.isSelected()) {
 
-                    mem1_1.setText("");
+                    mem1_1.setText("0");
 
 
                 }
                 if (mem_2.isSelected()) {
 
-                    mem2_2.setText("");
+                    mem2_2.setText("0");
 
                 }
                 if (mem_3.isSelected()) {
 
-                    mem3_3.setText("");
+                    mem3_3.setText("0");
 
                 }
             }
@@ -186,21 +250,7 @@ public class Calculator extends JFrame {
 
     }
 
-    double getMem1 ()
-    {
-        return mem1;
-    }
-    double getMem2 ()
-    {
-        return mem2;
-    }
-    double getMem3 ()
-    {
-        return mem3;
-    }
-    void setMem1 (double mem) { mem1 = mem; }
-    void setMem2 (double mem) { mem2 = mem; }
-    void setMem3 (double mem) { mem3 = mem; }
+
     double f1 (double x, double y, double z)
     {
 

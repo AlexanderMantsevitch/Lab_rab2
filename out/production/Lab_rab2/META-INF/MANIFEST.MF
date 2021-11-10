@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: E:\Программирование\Второй курс\Ja
+ va\Lab_rab2\src\com\company\Main.java
+
