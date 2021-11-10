@@ -1,6 +1,8 @@
 package com.company;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,7 +47,7 @@ public class Calculator extends JFrame {
                 (kit.getScreenSize().height - HEIGHT)/2);
 
         Container cont = this.getContentPane();
-        cont.setLayout( new GridLayout(7, 1, 2,2));
+        cont.setLayout( new GridLayout(6, 1, 2,2));
 
         JPanel panel1 = new JPanel();
         panel1.setLayout(new FlowLayout( FlowLayout.CENTER ));
@@ -77,16 +79,14 @@ public class Calculator extends JFrame {
         mem_1.setSelected(true);
 
         JPanel mems = new JPanel();
-        mems.setLayout(new FlowLayout( FlowLayout.CENTER ));
+        mems.setLayout(new GridLayout( 2, 3, 4, 4 ));
+        mems.setBorder( BorderFactory.createEmptyBorder(4,15,4,15));
         mems.add(mem_1);
         mems.add(mem_2);
         mems.add(mem_3);
-
-        JPanel mems_text = new JPanel();
-        mems_text.add(mem1_1);
-        mems_text.add(mem2_2);
-        mems_text.add(mem3_3);
-        mems_text.setLayout(new FlowLayout( FlowLayout.CENTER ));
+        mems.add(mem1_1);
+        mems.add(mem2_2);
+        mems.add (mem3_3);
 
         JPanel Butt = new JPanel();
         Butt.add (M);
@@ -106,7 +106,7 @@ public class Calculator extends JFrame {
       // cont.add (a1);
 
         cont.add (mems, BorderLayout.CENTER);
-        cont.add (mems_text, BorderLayout.CENTER);
+      //  cont.add (mems_text, BorderLayout.CENTER);
         cont.add (panel2, BorderLayout.CENTER);
         cont.add (Butt,BorderLayout.CENTER);
 
@@ -129,7 +129,7 @@ public class Calculator extends JFrame {
                 cont.add (ic_2);
 
                 cont.add (mems, BorderLayout.CENTER);
-                cont.add (mems_text, BorderLayout.CENTER);
+               // cont.add (mems_text, BorderLayout.CENTER);
                 cont.add (panel2, BorderLayout.CENTER);
                 cont.add (Butt,BorderLayout.CENTER);
 
@@ -144,9 +144,8 @@ public class Calculator extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
 
-                ImageIcon icon2 = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func2.BMP");
-
-                JLabel ic_3 = new JLabel(icon2);
+                ic = new ImageIcon("E:\\Программирование\\Второй курс\\Java\\Lab_rab2\\src\\com\\company\\func2.BMP");
+                JLabel ic_3 = new JLabel(ic);
                 ic_3.setLayout(new FlowLayout( FlowLayout.CENTER ));
                 ic_2.removeAll();
                 ic_2.add(ic_3);
@@ -156,12 +155,13 @@ public class Calculator extends JFrame {
                 cont.add (panel1, BorderLayout.CENTER);
                 cont.add (ic_2);
 
-
                 cont.add (mems, BorderLayout.CENTER);
-                cont.add (mems_text, BorderLayout.CENTER);
+                // cont.add (mems_text, BorderLayout.CENTER);
                 cont.add (panel2, BorderLayout.CENTER);
                 cont.add (Butt,BorderLayout.CENTER);
 
+
+                cont.add (res,BorderLayout.CENTER );
 
             }
         });
